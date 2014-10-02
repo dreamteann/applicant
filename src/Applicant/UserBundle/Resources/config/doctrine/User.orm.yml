@@ -1,0 +1,36 @@
+Applicant\UserBundle\Entity\User:
+    type:  entity
+    table: user
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        surname:
+            type: string
+            length: 255
+            nullable: true
+        firstname:
+            type: string
+            length: 20
+            nullable: true
+        secondname:
+            type: string
+            length: 20
+            nullable: true
+        image:
+            type: string
+            length: 255
+            nullable: true
+            options:
+                default: "http://cs315930.vk.me/v315930249/2fd6/BVG-Slz47QI.jpg"
+        country:
+            type: string
+            length: 30
+            nullable: true
+        city:
+            type: string
+            length: 30
+            nullable: true
