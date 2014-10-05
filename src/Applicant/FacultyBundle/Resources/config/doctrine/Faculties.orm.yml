@@ -1,6 +1,6 @@
-Applicant\UserBundle\Entity\User:
-    type:  entity
-    table: user
+Applicant\FacultyBundle\Entity\Faculties:
+    type: entity
+    table: null
     id:
         id:
             type: integer
@@ -8,33 +8,27 @@ Applicant\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        surname:
+        name:
             type: string
             length: 255
             nullable: true
-        firstname:
-            type: string
-            length: 20
-            nullable: true
-        secondname:
-            type: string
-            length: 20
-            nullable: true
-        image:
+        address:
             type: string
             length: 255
             nullable: true
-            options:
-                default: "http://cs315930.vk.me/v315930249/2fd6/BVG-Slz47QI.jpg"
-        country:
+        phone:
             type: string
-            length: 30
+            length: 255
             nullable: true
-        city:
+        site:
             type: string
-            length: 30
+            length: 255
             nullable: true
-        street:
+        mail:
             type: string
-            length: 30
+            length: 255
+            nullable: true
+        dean:
+            type: string
+            length: 255
             nullable: true

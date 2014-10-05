@@ -9,8 +9,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
- *
- * @@ExclusionPolicy("all")
  */
 class User extends BaseUser
 {
@@ -20,12 +18,6 @@ class User extends BaseUser
         // your own logic
     }
 
-
-    /**
-     * @Assert\Length(min=3, max="255", minMessage="The name is too short.", maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"})
-     */
-    protected  $name;
 
     /**
      * @Assert\NotBlank()
@@ -55,6 +47,24 @@ class User extends BaseUser
      * @Assert\Length(min=8, max=30)
      */
     protected $city;
+
+    protected $street;
+
+    /**
+     * @param mixed $street
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
 
     /**
      * @param mixed $city
@@ -118,22 +128,6 @@ class User extends BaseUser
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

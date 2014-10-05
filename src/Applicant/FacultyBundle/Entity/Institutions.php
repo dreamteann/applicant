@@ -1,6 +1,6 @@
 <?php
 
-namespace Applicant\FacilutyBundle\Entity;
+namespace Applicant\FacultyBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -11,6 +11,23 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Institutions
 {
     protected $id;
+
+    protected $name;
+
+    protected $address;
+
+    protected $phone;
+
+    protected $site;
+
+    protected $mail;
+
+    protected $director;
+
+    /*
+     * Перший заступник директора
+     */
+    protected $firstdeputy;
 
     /**
      * @return mixed
@@ -131,21 +148,4 @@ class Institutions
     {
         return $this->site;
     }
-
-    protected $name;
-
-    protected $address;
-
-    protected $phone;
-
-    protected $site;
-
-    protected $mail;
-
-    protected $director;
-
-    /*
-     * Перший заступник директора
-     */
-    protected $firstdeputy;
 }

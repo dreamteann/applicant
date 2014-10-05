@@ -1,6 +1,6 @@
 <?php
 
-namespace Applicant\FacilutyBundle\Entity;
+namespace Applicant\FacultyBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,6 +12,18 @@ class Faculties
 {
     protected $id;
 
+    protected $name;
+
+    protected $address;
+
+    protected $phone;
+
+    protected $site;
+
+    protected $mail;
+
+    protected $dean;
+
     /**
      * @return mixed
      */
@@ -19,8 +31,6 @@ class Faculties
     {
         return $this->id;
     }
-
-    protected $name;
 
     /**
      * @param mixed $address
@@ -117,15 +127,4 @@ class Faculties
     {
         return $this->site;
     }
-
-    protected $address;
-
-    protected $phone;
-
-    protected $site;
-
-    protected $mail;
-
-    protected $dean;
-
 }
