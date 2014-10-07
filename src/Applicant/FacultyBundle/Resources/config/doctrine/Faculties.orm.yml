@@ -1,0 +1,39 @@
+Applicant\FacultyBundle\Entity\Faculties:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        department:
+            targetEntity: Departments
+            mappedBy: faculty
+            cascade: [ "all" ]
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        address:
+            type: string
+            length: 255
+            nullable: true
+        phone:
+            type: string
+            length: 255
+            nullable: true
+        site:
+            type: string
+            length: 255
+            nullable: true
+        mail:
+            type: string
+            length: 255
+            nullable: true
+        dean:
+            type: string
+            length: 255
+            nullable: true

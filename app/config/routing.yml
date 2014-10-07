@@ -1,0 +1,3 @@
+applicant_user:
+    resource: "@ApplicantUserBundle/Resources/config/routing.yml"
+    prefix:   /
