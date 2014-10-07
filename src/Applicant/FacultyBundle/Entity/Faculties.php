@@ -1,6 +1,6 @@
 <?php
 
-namespace Applicant\FacilutyBundle\Entity;
+namespace Applicant\FacultyBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,6 +12,25 @@ class Faculties
 {
     protected $id;
 
+    protected $name;
+
+    protected $address;
+
+    protected $phone;
+
+    protected $site;
+
+    protected $mail;
+
+    protected $dean;
+
+    protected $department;
+
+    public function __construct()
+    {
+        $this->department = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -19,8 +38,6 @@ class Faculties
     {
         return $this->id;
     }
-
-    protected $name;
 
     /**
      * @param mixed $address
@@ -118,14 +135,36 @@ class Faculties
         return $this->site;
     }
 
-    protected $address;
+    /**
+     * Add department
+     *
+     * @param \Applicant\FacultyBundle\Entity\Departments $department
+     */
+    public function addDepartment(\Applicant\FacultyBundle\Entity\Departments $department)
+    {
+        $this->department[] = $department;
+        $department->setFaculty($this);
 
-    protected $phone;
+        return $this;
+    }
 
-    protected $site;
+    /**
+     * Remove department
+     *
+     * @param \Applicant\FacultyBundle\Entity\Departments $department
+     */
+    public function removeDepartment(\Applicant\FacultyBundle\Entity\Departments $department)
+    {
+        $this->department->removeElement($department);
+    }
 
-    protected $mail;
-
-    protected $dean;
-
+    /**
+     * Get photo
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
 }

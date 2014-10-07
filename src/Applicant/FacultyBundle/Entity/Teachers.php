@@ -16,6 +16,8 @@ class Teachers
 
     protected $post;
 
+    protected $department;
+
     /**
      * @param mixed $name
      */
@@ -54,6 +56,29 @@ class Teachers
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set department
+     *
+     * @param \Applicant\FacultyBundle\Entity\Departments $department
+     * @return Departments
+     */
+    public function setDepartment(\Applicant\FacultyBundle\Entity\Departments $department= null)
+    {
+        $this->department = $department;
+
+        return $this;
+    }
+
+    /**
+     * Get department
+     *
+     * @return \Applicant\FacultyBundle\Entity\Departments
+     */
+    public function getDepartment()
+    {
+        return $this->department;
     }
 
 }
