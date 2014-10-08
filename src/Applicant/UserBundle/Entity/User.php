@@ -3,162 +3,200 @@
 namespace Applicant\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
-use FOS\UserBundle\Model\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * User
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
  */
+
 class User extends BaseUser
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebookId;
+
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebookAccessToken;
+
+    /** @ORM\Column(name="vkontakte_id", type="string", length=255, nullable=true) */
+    protected $vkontakteId;
+
+    /** @ORM\Column(name="vkontakte_access_token", type="string", length=255, nullable=true) */
+    protected $vkontakteAccessToken;
+
+    /** @ORM\Column(name="first_name_vkontakte", type="string", length=255, nullable=true) */
+    protected $firstNameVkontakte;
+
+    /** @ORM\Column(name="last_name_vkontakte", type="string", length=255, nullable=true) */
+    protected $lastNameVkontakte;
+
+    /** @ORM\Column(name="first_name_facebook", type="string", length=255, nullable=true) */
+    protected $firstNameFacebook;
+
+    /** @ORM\Column(name="last_name_facebook", type="string", length=255, nullable=true) */
+    protected $lastNameFacebook;
+
+    /** @ORM\Column(name="email_facebook", type="string", length=255, nullable=true) */
+    protected $emailFacebook;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
-    }
 
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min=3, max=20)
-     */
-    protected  $firstname;
-
-    /**
-     * @Assert\Length(min=3, max=20)
-     */
-    protected  $secondname;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min=3, max=20)
-     */
-    protected  $surname;
-
-    protected $image = 'http://cs315930.vk.me/v315930249/2fd6/BVG-Slz47QI.jpg';
-
-    /**
-     * @Assert\Length(min=7, max=30)
-     */
-    protected $country;
-
-    /**
-     * @Assert\Length(min=8, max=30)
-     */
-    protected $city;
-
-    protected $street;
-
-    /**
-     * @param mixed $street
-     */
-    public function setStreet($street)
-    {
-        $this->street = $street;
     }
 
     /**
      * @return mixed
      */
-    public function getStreet()
+    public function getVkontakteAccessToken()
     {
-        return $this->street;
-    }
-
-    /**
-     * @param mixed $city
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
+        return $this->vkontakteAccessToken;
     }
 
     /**
      * @return mixed
      */
-    public function getCity()
+    public function getVkontakteId()
     {
-        return $this->city;
-    }
-
-    /**
-     * @param mixed $country
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
+        return $this->vkontakteId;
     }
 
     /**
      * @return mixed
      */
-    public function getCountry()
+    public function getFacebookId()
     {
-        return $this->country;
-    }
-
-    /**
-     * @param mixed $firstname
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
+        return $this->facebookId;
     }
 
     /**
      * @return mixed
      */
-    public function getFirstname()
+    public function getFacebookAccessToken()
     {
-        return $this->firstname;
+        return $this->facebookAccessToken;
     }
 
     /**
-     * @param string $image
+     * @param mixed $facebook_access_token
      */
-    public function setImage($image)
+    public function setFacebookAccessToken($facebookAccessToken)
     {
-        $this->image = $image;
+        $this->facebookAccessToken = $facebookAccessToken;
     }
 
     /**
-     * @return string
+     * @param mixed $facebook_id
      */
-    public function getImage()
+    public function setFacebookId($facebookId)
     {
-        return $this->image;
+        $this->facebookId = $facebookId;
     }
 
     /**
-     * @param mixed $secondname
+     * @param mixed $vkontakte_access_token
      */
-    public function setSecondname($secondname)
+    public function setVkontakteAccessToken($vkontakteAccessToken)
     {
-        $this->secondname = $secondname;
+        $this->vkontakteAccessToken = $vkontakteAccessToken;
     }
 
     /**
-     * @return mixed
+     * @param mixed $vkontakte_id
      */
-    public function getSecondname()
+    public function setVkontakteId($vkontakteId)
     {
-        return $this->secondname;
-    }
-
-    /**
-     * @param mixed $surname
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
+        $this->vkontakteId = $vkontakteId;
     }
 
     /**
      * @return mixed
      */
-    public function getSurname()
+    public function getLastNameFacebook()
     {
-        return $this->surname;
+        return $this->lastNameFacebook;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLastNameVkontakte()
+    {
+        return $this->lastNameVkontakte;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstNameVkontakte()
+    {
+        return $this->firstNameVkontakte;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstNameFacebook()
+    {
+        return $this->firstNameFacebook;
+    }
+
+    /**
+     * @param mixed $firstNameFacebook
+     */
+    public function setFirstNameFacebook($firstNameFacebook)
+    {
+        $this->firstNameFacebook = $firstNameFacebook;
+    }
+
+    /**
+     * @param mixed $firstNameVkontakte
+     */
+    public function setFirstNameVkontakte($firstNameVkontakte)
+    {
+        $this->firstNameVkontakte = $firstNameVkontakte;
+    }
+
+    /**
+     * @param mixed $lastNameFacebook
+     */
+    public function setLastNameFacebook($lastNameFacebook)
+    {
+        $this->lastNameFacebook = $lastNameFacebook;
+    }
+
+    /**
+     * @param mixed $lastNameVkontakte
+     */
+    public function setLastNameVkontakte($lastNameVkontakte)
+    {
+        $this->lastNameVkontakte = $lastNameVkontakte;
+    }
+
+    /**
+     * @param mixed $emailFacebook
+     */
+    public function setEmailFacebook($emailFacebook)
+    {
+        $this->emailFacebook = $emailFacebook;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmailFacebook()
+    {
+        return $this->emailFacebook;
+    }
+
+
+
 }

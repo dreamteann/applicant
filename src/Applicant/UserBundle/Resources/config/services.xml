@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="applicant.user.applicant_user_provider.class">Applicant\UserBundle\Security\Core\User\FOSUBUserProvider</parameter>
+        <parameter key="applicant.user.facebook_provider.class">Applicant\UserBundle\Security\Core\User\FacebookProvider</parameter>
+        <parameter key="applicant.user.vkontakte_provider.class">Applicant\UserBundle\Security\Core\User\VkontakteProvider</parameter>
+    </parameters>
+
+    <services>
+        <service id="applicant.user.facebook_provider" class="%applicant.user.facebook_provider.class%"/>
+
+        <service id="applicant.user.vkontakte_provider" class="%applicant.user.vkontakte_provider.class%"/>
+
+        <service id="applicant_user_provider" class="%applicant.user.applicant_user_provider.class%">
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="collection">
+                <argument key="facebook">facebookId</argument>
+                <argument key="vkontakte">vkontakteId</argument>
+            </argument>
+            <call method="setFacebookProvider">
+                <argument type="service" id="applicant.user.facebook_provider" />
+            </call>
+            <call method="setVkontakteProvider">
+                <argument type="service" id="applicant.user.vkontakte_provider" />
+            </call>
+        </service>
+    </services>
+</container>

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Applicant\UserBundle\ApplicantUserBundle(),
             new Applicant\FacultyBundle\ApplicantFacultyBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

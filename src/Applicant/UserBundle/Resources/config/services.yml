@@ -1,6 +1,0 @@
-services:
-    my_social.registration.form.type:
-        class: Applicant\UserBundle\Form\Type\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: applicant_user_registration }
