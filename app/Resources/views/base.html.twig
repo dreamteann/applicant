@@ -1,13 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myTab a").click(function(e){
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        });
+    </script>
+    <title>{% block title %}Applicant{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'css/bootstrap.min.css' %}
+        <link rel="stylesheet" href="{{ asset(asset_url) }}"/>
+        {% endstylesheets %}
+    {% endblock stylesheets %}
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    {% javascripts output="js/frontend.js"
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js'
+    '%kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js'
+    %}
+    <script src="{{ asset(asset_url) }}"></script>
+    {% endjavascripts %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+
+{% block header %}
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header navbar-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >Social Network</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                        {#<li><a href="{{ path('my_social_help') }}">{{ 'header.help'|trans({},'MySocialBundle')}}</a></li>#}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    {% block fos_user_content %}{% endblock fos_user_content %}
+{% endblock %}
+</body>
 </html>

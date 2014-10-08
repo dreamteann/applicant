@@ -1,0 +1,26 @@
+Applicant\FacultyBundle\Entity\Teachers:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        department:
+            targetEntity: Departments
+            inversedBy: teacher
+            joinColumn:
+                name: department_id
+                referencedColumnName: id
+                cascade: [ "all" ]
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        post:
+            type: string
+            length: 255
+            nullable: true

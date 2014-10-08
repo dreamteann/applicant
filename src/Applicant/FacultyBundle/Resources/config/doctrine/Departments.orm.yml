@@ -1,0 +1,46 @@
+Applicant\FacultyBundle\Entity\Departments:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        faculty:
+            targetEntity: Faculties
+            inversedBy: department
+            joinColumn:
+                name: faculty_id
+                referencedColumnName: id
+                cascade: [ "all" ]
+        institut:
+            targetEntity: Institutions
+            inversedBy: department
+            joinColumn:
+                name: institut_id
+                referencedColumnName: id
+                cascade: [ "all" ]
+    oneToMany:
+        teacher:
+            targetEntity: Teachers
+            mappedBy: department
+            cascade: [ "all" ]
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        address:
+            type: string
+            length: 255
+            nullable: true
+        phone:
+            type: string
+            length: 255
+            nullable: true
+        head:
+            type: string
+            length: 255
+            nullable: true
