@@ -30,7 +30,6 @@ class FacebookProvider
         $responseArray = $response->getResponse();
         $user->setFirstNameFacebook($responseArray['first_name']);
         $user->setLastNameFacebook($responseArray['last_name']);
-        $user->setEmailFacebook($responseArray['email']);
         $user->setFacebookId($response->getUsername());
         $user->setFacebookAccessToken($response->getAccessToken());
 
