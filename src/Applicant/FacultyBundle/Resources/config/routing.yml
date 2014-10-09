@@ -1,0 +1,3 @@
+index:
+    pattern: /index
+    defaults: { _controller:ApplicantFacultyBundle:Default:index }

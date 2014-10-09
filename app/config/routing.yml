@@ -1,3 +1,5 @@
 applicant_user:
     resource: "@ApplicantUserBundle/Resources/config/routing.yml"
-    prefix:   /
+
+applicant_faculty:
+    resource: "@ApplicantFacultyBundle/Resources/config/routing.yml"
