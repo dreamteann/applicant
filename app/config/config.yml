@@ -56,6 +56,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.min.js
             output: js/bootstrap.min.js
+
         signin:
             inputs:
                 - %kernel.root_dir%/../src/Applicant/UserBundle/Resources/public/css/signin.css

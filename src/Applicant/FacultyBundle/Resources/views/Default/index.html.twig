@@ -1,5 +1,16 @@
 {% extends "::base.html.twig" %}
 
+{% block header %}
+{% endblock header %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 'bundles/applicantfaculty/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+
 {% block body %}
 
     <body id="pageBody">
@@ -10,10 +21,9 @@
             <div class="divPanel topArea notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
-
                         <div id="divLogo" class="pull-left">
-                            <a href="index.html" id="divSiteTitle">Your Name Here</a><br />
-                            <a href="index.html" id="divTagLine">Your Tag Line Here</a>
+                            <a href="#" id="divTagLine">Черкаський національний університет</a><br />
+                            <a href="#" id="divSiteTitle">імені Богдана Хмельницького</a>
                         </div>
 
                         <div id="divMenuRight" class="pull-right">
@@ -21,34 +31,31 @@
                                 <button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
                                     NAVIGATION <span class="icon-chevron-down icon-white"></span>
                                 </button>
-                                <div class="nav-collapse collapse">
+                                <div class="nav-collapse ">
                                     <ul class="nav nav-pills ddmenu">
-                                        <li class="dropdown active"><a href="index.html">Home</a></li>
-                                        <li class="dropdown"><a href="about.html">About</a></li>
+                                        <li class="dropdown active"><a href="index.html">Головна</a></li>
                                         <li class="dropdown">
-                                            <a href="page.html" class="dropdown-toggle">Page <b class="caret"></b></a>
+                                            <a href="page.html" class="dropdown-toggle">Абітурієнту <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="full.html">Full Page</a></li>
                                                 <li><a href="2-column.html">Two Column</a></li>
                                                 <li><a href="3-column.html">Three Column</a></li>
                                                 <li><a href="../documentation/index.html">Documentation</a></li>
                                                 <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle">Dropdown Item &nbsp;&raquo;</a>
-                                                    <ul class="dropdown-menu sub-menu">
-                                                        <li><a href="#">Dropdown Item</a></li>
-                                                        <li><a href="#">Dropdown Item</a></li>
+                                                    <a href="#" class="dropdown-toggle">Підрозділи університету &nbsp;&raquo;</a>
+                                                    <ul class="dropdown-menu sub-menu pull-left ">
+                                                        <li><a href="#">Навчально-наукові інститути</a></li>
+                                                        <li><a href="#">Факультети</a></li>
                                                         <li><a href="#">Dropdown Item</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="dropdown"><a href="gallery.html">Gallery</a></li>
-                                        <li class="dropdown"><a href="contact.php">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -66,7 +73,7 @@
                         <div id="headerSeparator"></div>
 
                         <div id="divHeaderText" class="page-content">
-                            <div id="divHeaderLine1">Your Header Text Here!</div><br />
+                            <div id="divHeaderLine1">Ласково просимо</div><br />
                             <div id="divHeaderLine2">2nd line header text for calling extra attention to featured content..</div><br />
                             <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="#">More Info</a></div>
                         </div>
@@ -108,16 +115,16 @@
 
                     <div class="list_carousel responsive">
                         <ul id="list_photos">
-                            <li><img src="images/carmel.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/rula-sibai-pink-flowers.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/girl-flowers.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/night-city.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/irish-hands.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/Top_view.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/vectorbeastcom-grass-sun.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/sunset-hair.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/stones-hi-res.jpg" class="img-polaroid">  </li>
-                            <li><img src="images/salzburg-x.jpg" class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/carmel.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/rula-sibai-pink-flowers.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/girl-flowers.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/night-city.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/irish-hands.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/Top_view.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/vectorbeastcom-grass-sun.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/sunset-hair.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/stones-hi-res.jpg")}} class="img-polaroid">  </li>
+                            <li><img src={{ asset("bundles/applicantfaculty/images/salzburg-x.jpg")}} class="img-polaroid">  </li>
                         </ul>
                     </div>
 
@@ -135,7 +142,7 @@
                             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
 
                             <p>
-                                <img src="images/spring-is-coming.jpg" class="img-polaroid" style="margin:12px 0px;">
+                                <img src={{ asset("bundles/applicantfaculty/images/spring-is-coming.jpg")}} class="img-polaroid" style="margin:12px 0px;">
                             </p>
 
                             <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -278,13 +285,18 @@
 
     </div>
 
-    <script src="scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/default.js" type="text/javascript"></script>
+    {% javascripts
+    '@ApplicantFacultyBundle/Resources/public/js/default.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
+    {% javascripts
+    '@ApplicantFacultyBundle/Resources/public/js/jquery.carouFredSel-6.2.0-packed.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
-    <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
-
-
+    <script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
     </body>
 {% endblock body %}
