@@ -22,8 +22,8 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div id="divLogo" class="pull-left">
-                            <a href="#" id="divTagLine">Черкаський національний університет</a><br />
-                            <a href="#" id="divSiteTitle">імені Богдана Хмельницького</a>
+                            <a href="{{ path('index') }}" id="divTagLine">Черкаський національний університет</a><br />
+                            <a href="{{ path('index') }}" id="divSiteTitle">імені Богдана Хмельницького</a>
                         </div>
 
                         <div id="divMenuRight" class="pull-right">
@@ -33,7 +33,7 @@
                                 </button>
                                 <div class="nav-collapse ">
                                     <ul class="nav nav-pills ddmenu">
-                                        <li class="dropdown active"><a href="index.html">Головна</a></li>
+                                        <li class="dropdown active"><a href="{{ path('index') }}">Головна</a></li>
                                         <li class="dropdown disabled">
                                             <a class="dropdown-toggle ">Абітурієнту <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
@@ -72,9 +72,11 @@
                         <div id="headerSeparator"></div>
 
                         <div id="divHeaderText" class="page-content">
+                            <br />
                             <div id="divHeaderLine1">Ласково просимо</div><br />
-                            <div id="divHeaderLine2">2nd line header text for calling extra attention to featured content..</div><br />
-                            <div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="#">More Info</a></div>
+                            <div id="divHeaderLine1">до нашого університету</div><br /><br /><br /><br /><br /><br /><br />
+                            {#<div id="divHeaderLine2">2nd line header text for calling extra attention to featured content..</div><br />#}
+                            {#<div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="#">More Info</a></div>#}
                         </div>
 
                         <div id="headerSeparator2"></div>
@@ -97,19 +99,11 @@
 
                 <div class="span12" id="divMain">
 
-                    <h1>Welcome </h1>
-
-                    <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <p><b>Черкаський національний університет імені Богдана Хмельницького</b> - освітній, науковий, культурний та інтелектуальний центр Шевченкового краю. Головним завданням університету є підготовка конкуретно-спроможних фахівців, розвиток науки, патріотичне й морально-духовне виховання особистості.
                     </p>
 
                     <hr style="margin:45px 0 35px" />
 
-                    <div class="lead">
-                        <h2>Lorem ipsum dolor sit amet.</h2>
-                        <h3>Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.</h3>
-                    </div>
                     <br />
 
                     <div class="list_carousel responsive">
@@ -128,49 +122,6 @@
                     </div>
 
                     <hr style="margin:45px 0 35px" />
-
-                    <div class="lead">
-                        <h2>Featured Content.</h2>
-                        <h3>Content on this page is for presentation purposes only.</h3>
-                    </div>
-                    <br />
-
-                    <div class="row-fluid">
-                        <div class="span8">
-
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-
-                            <p>
-                                <img src={{ asset("bundles/applicantfaculty/images/spring-is-coming.jpg")}} class="img-polaroid" style="margin:12px 0px;">
-                            </p>
-
-                            <p>Content on this page is for presentation purposes only. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-
-                        </div>
-                        <div class="span4 sidebar">
-
-                            <div class="sidebox">
-                                <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-                            </div>
-
-                            <br />
-
-                            <div class="sidebox">
-                                <h3 class="sidebox-title">Sample Sidebar Content</h3>
-                                <p>
-                                <div class="input-append">
-                                    <input class="span8" id="inpEmail" size="16" type="text"><button class="btn" type="button">Action</button>
-                                </div>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
@@ -189,83 +140,27 @@
             <div class="divPanel">
 
                 <div class="row-fluid">
-                    <div class="span3" id="footerArea1">
-
-                        <h3>About Company</h3>
-
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
-
-                        <p>
-                            <a href="#" title="Terms of Use">Terms of Use</a><br />
-                            <a href="#" title="Privacy Policy">Privacy Policy</a><br />
-                            <a href="#" title="FAQ">FAQ</a><br />
-                            <a href="#" title="Sitemap">Sitemap</a>
-                        </p>
-
-                    </div>
-                    <div class="span3" id="footerArea2">
-
-                        <h3>Recent Blog Posts</h3>
-                        <p>
-                            <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                            <span style="text-transform:none;">2 hours ago</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                            <span style="text-transform:none;">5 hours ago</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                            <span style="text-transform:none;">19 hours ago</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">VIEW ALL POSTS</a>
-                        </p>
-
-                    </div>
-                    <div class="span3" id="footerArea3">
-
-                        <h3>Sample Content</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
-                        </p>
-
-                    </div>
                     <div class="span3" id="footerArea4">
 
                         <h3>Get in Touch</h3>
 
-                        <ul id="contact-info">
-                            <li>
-                                <i class="general foundicon-phone icon"></i>
+                        <p id="contact-info">
+                                <i class="glyphicon glyphicon-phone-alt"></i>
                                 <span class="field">Phone:</span>
-                                <br />
-                                (123) 456 7890 / 456 7891
-                            </li>
-                            <li>
-                                <i class="general foundicon-mail icon"></i>
+                                (123) 456 7890 / 456 7891<br />
+                                <i class="glyphicon glyphicon-envelope"></i>
                                 <span class="field">Email:</span>
-                                <br />
                                 <a href="mailto:info@yourdomain.com" title="Email">info@yourdomain.com</a>
-                            </li>
-                            <li>
-                                <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                                <span class="field">Address:</span>
                                 <br />
-                                123 Street<br />
-                                12345 City, State<br />
-                                Country
-                            </li>
-                        </ul>
-
+                                <i class="glyphicon glyphicon-road" style="margin-bottom:50px"></i>
+                                <span class="field">Address:</span>123 Street 12345 Cherkassy,  Ukraine
+                        </p>
                     </div>
                 </div>
-
-                <br /><br />
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright">
-                            Copyright © 2013 Your Company. All Rights Reserved.
+                            Copyright © 2014 Dreamteam Company. All Rights Reserved.
                         </p>
 
                         <p class="social_bookmarks">
