@@ -42,10 +42,10 @@
                                                 <li><a href="3-column.html">Three Column</a></li>
                                                 <li><a href="../documentation/index.html">Documentation</a></li>
                                                 <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle">Підрозділи університету &nbsp;&raquo;</a>
+                                                    <a href="{{ path('units') }}" class="dropdown-toggle">Підрозділи університету &nbsp;&raquo;</a>
                                                     <ul class="dropdown-menu sub-menu" style="right: 100%; left: auto;">
-                                                        <li><a href="#">Навчально-наукові інститути</a></li>
-                                                        <li><a href="#">Факультети</a></li>
+                                                        <li><a href="{{ path('institutes') }}">Навчально-наукові інститути</a></li>
+                                                        <li><a href="{{ path('faculties') }}">Факультети</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -72,9 +72,9 @@
                         <div id="headerSeparator"></div>
 
                         <div id="divHeaderText" class="page-content">
-                            <br />
-                            <div id="divHeaderLine1">Ласково просимо</div><br />
-                            <div id="divHeaderLine1">до нашого університету</div><br /><br /><br /><br /><br /><br /><br />
+                            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                            {#<div id="divHeaderLine1">Ласково просимо</div><br />#}
+                            {#<div id="divHeaderLine1">до нашого університету</div><br /><br /><br /><br /><br /><br /><br />#}
                             {#<div id="divHeaderLine2">2nd line header text for calling extra attention to featured content..</div><br />#}
                             {#<div id="divHeaderLine3"><a class="btn btn-large btn-primary" href="#">More Info</a></div>#}
                         </div>

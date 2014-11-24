@@ -1,5 +1,10 @@
-applicant_user:
-    resource: "@ApplicantUserBundle/Resources/config/routing.yml"
+work_demo:
+    resource: "@WorkDemoBundle/Resources/config/routing.yml"
+    prefix:   /demo
 
 applicant_faculty:
     resource: "@ApplicantFacultyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

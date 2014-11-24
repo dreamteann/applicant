@@ -1,3 +1,27 @@
 index:
     pattern: /index
     defaults: { _controller:ApplicantFacultyBundle:Default:index }
+
+units:
+    pattern: /units
+    defaults: { _controller:ApplicantFacultyBundle:Default:units }
+
+institute:
+    pattern: /institute/{id}
+    defaults: { _controller:ApplicantFacultyBundle:Default:institute }
+    requirements:
+        id: \d+
+
+faculty:
+    pattern: /faculty/{id}
+    defaults: { _controller:ApplicantFacultyBundle:Default:faculty }
+    requirements:
+        id: \d+
+
+institutes:
+    pattern: /institutes
+    defaults: { _controller:ApplicantFacultyBundle:Default:institutes }
+
+faculties:
+    pattern: /faculties
+    defaults: { _controller:ApplicantFacultyBundle:Default:faculties }

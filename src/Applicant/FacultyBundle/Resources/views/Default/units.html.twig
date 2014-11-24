@@ -1,0 +1,134 @@
+{% extends "::base.html.twig" %}
+
+{% block header %}
+{% endblock header %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 'bundles/applicantfaculty/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+
+{% block body %}
+
+<body id="pageBody">
+
+<div id="decorative2">
+    <div class="container">
+
+        <div class="divPanel topArea notop nobottom">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="divLogo" class="pull-left">
+                        <a href="{{ path('index') }}" id="divTagLine">Черкаський національний університет</a><br />
+                        <a href="{{ path('index') }}" id="divSiteTitle">імені Богдана Хмельницького</a>
+                    </div>
+
+                    <div id="divMenuRight" class="pull-right">
+                        <div class="navbar">
+                            <button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
+                                NAVIGATION <span class="icon-chevron-down icon-white"></span>
+                            </button>
+                            <div class="nav-collapse ">
+                                <ul class="nav nav-pills ddmenu">
+                                    <li class="dropdown"><a href="{{ path('index') }}">Головна</a></li>
+                                    <li class="dropdown disabled">
+                                        <a class="dropdown-toggle active">Абітурієнту <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="full.html">Full Page</a></li>
+                                            <li><a href="2-column.html">Two Column</a></li>
+                                            <li><a href="3-column.html">Three Column</a></li>
+                                            <li><a href="../documentation/index.html">Documentation</a></li>
+                                            <li class="dropdown">
+                                                <a href="{{ path('units') }}" class="dropdown-toggle">Підрозділи університету &nbsp;&raquo;</a>
+                                                <ul class="dropdown-menu sub-menu" style="right: 100%; left: auto;">
+                                                    <li><a href="{{ path('institutes') }}">Навчально-наукові інститути</a></li>
+                                                    <li><a href="{{ path('faculties') }}">Факультети</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="gallery.html">Gallery</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="contentOuterSeparator"></div>
+<div class="container">
+    <div class="divPanel page-content">
+        <h3>Підрозділи університету</h3>
+        <ul>
+            <div class="accordion" id="accordion2">
+
+                <li><div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            Навчально-наукові інститути
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="media-list">
+                                {% for institut in institute %}
+                                    <li class="media">
+                                        <a class="pull-left" href="{{ path('institute',{id:institut.id}) }}">
+                                            <img src="http://placehold.it/64x64" class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">{{ institut.name }}</h4>
+                                            {{ institut.address }}
+                                        </div></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div></li>
+                <li><div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                            Факультети
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="media-list">
+                                {% for faculty in faculties %}
+                                    <li class="media">
+                                        <a class="pull-left" href="{{ path('faculty', {id:faculty.id})}}">
+                                            <img src="http://placehold.it/64x64" class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">{{ faculty.name }}</h4>
+                                            {{ faculty.address }}
+                                        </div></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div></li>
+            </div>
+        </ul>
+    </div>
+</div>
+{% javascripts
+'@ApplicantFacultyBundle/Resources/public/js/default.js'
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts
+'@ApplicantFacultyBundle/Resources/public/js/jquery.carouFredSel-6.2.0-packed.js'
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script>
+{% endblock body %}
